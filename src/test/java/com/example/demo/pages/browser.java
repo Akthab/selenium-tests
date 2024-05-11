@@ -7,18 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class browser {
-      public static void main(String[] args) {
-            System.out.println("Please enter browser of your choice: firefox, chrome or safari");
-            Scanner sc = new Scanner(System.in);
-            String browser = sc.next();
+public class Browser {
 
-            invokeBrowse(browser);
-            sc.close();
-      }
-      
-
-      private static void invokeBrowse(String browser) {
+      static WebDriver getBrowser(String browser) {
             WebDriver driver = null;
             if(browser.equalsIgnoreCase("chrome")){
                   driver = new ChromeDriver();
@@ -31,6 +22,6 @@ public class browser {
             }
             else System.out.println("Browser not supported");
 
-            driver.get("http:www.google.com");
+            return driver;
       }
 }
