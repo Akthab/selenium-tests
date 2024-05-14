@@ -29,5 +29,53 @@ public class WebElement1 {
             // switch to default content
             driver.switchTo().defaultContent();
       }
+
+      public void handleCheckBox(String browser) {
+            WebDriver driver = Browser.getBrowser(browser);
+
+            driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_checkbox");
+
+            //switch to the parent iframe
+            driver.switchTo().frame("iframeResult");
+
+            // find child frame
+            driver.findElement(By.name("vehicle1")).click();
+
+           //sleep time
+           try {
+            Thread.sleep(3000);
+           } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+           }
+
+           //deselect checkbox
+           driver.findElement(By.name("vehicle1")).click();
+
+      }
+
+      public void handleRadioButton(String browser) {
+            WebDriver driver = Browser.getBrowser(browser);
+
+            driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_input_type_radio");
+
+            //switch to the parent iframe
+            driver.switchTo().frame("iframeResult");
+
+            // find radio button
+            driver.findElement(By.cssSelector("input[value='JavaScript']")).click();
+
+           //sleep time
+           try {
+            Thread.sleep(3000);
+           } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+           }
+
+           //deselect radio button
+           driver.findElement(By.cssSelector("input[value='CSS']")).click();
+
+      }
       
 }
