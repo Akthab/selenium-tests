@@ -14,12 +14,16 @@ public class App {
             Scanner sc = new Scanner(System.in);
             String browser = sc.next();     
 
-            ElementFindingExamples examples = new ElementFindingExamples();
+            // ElementFindingExamples examples = new ElementFindingExamples();
+
+            WebElement1 webElement = new WebElement1();
+
             if (browser.equalsIgnoreCase("firefox") || browser.equalsIgnoreCase("chrome")){
                   // examples.findElementByName(browser);
                   // examples.findElementById(browser);
                   // examples.findElementByLinkText(browser);
-                  examples.findElementBypartialLinkText(browser);
+                  // examples.findElementByXPath(browser);
+                  webElement.handleIframe(browser);
             } else {
                   System.out.println("Browser " + browser + "you entered not supported");
             }

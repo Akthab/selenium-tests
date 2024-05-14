@@ -35,10 +35,10 @@ public class ElementFindingExamples {
             driver.get("https://www.facebook.com");
 
             //Find email web element
-            WebElement emailElement = driver.findElement(By.id("pass"));
+            WebElement passwordElement = driver.findElement(By.id("pass"));
 
             //perform any action on the email element
-            emailElement.sendKeys("password");
+            passwordElement.sendKeys("password");
       }
 
       public void findElementByLinkText(String browser) {
@@ -53,10 +53,10 @@ public class ElementFindingExamples {
             driver.get("https://www.facebook.com");
 
             //Find email web element
-            WebElement emailElement = driver.findElement(By.linkText("Forgotten password?"));
+            WebElement forgotPasswordElement = driver.findElement(By.linkText("Forgotten password?"));
 
             //perform any action on the email element
-            emailElement.click();
+            forgotPasswordElement.click();
       }
 
       public void findElementBypartialLinkText(String browser) {
@@ -71,9 +71,45 @@ public class ElementFindingExamples {
             driver.get("https://www.facebook.com");
 
             //Find email web element
-            WebElement emailElement = driver.findElement(By.partialLinkText("Fund"));
+            WebElement fundRaiserElement = driver.findElement(By.partialLinkText("Fund"));
 
             //perform any action on the email element
-            emailElement.click();
+            fundRaiserElement.click();
+      }
+
+      public void findElementByXPath(String browser) {
+            /*
+             * 1. Get webdriver object as per browser name
+             * 2. Open facebook
+             * 3. Find email element 
+             */
+
+            WebDriver driver = Browser.getBrowser(browser);
+            //open facebook
+            driver.get("https://www.facebook.com");
+
+            //Find email web element
+            WebElement emaiElement = driver.findElement(By.xpath("//*[@name='email']"));
+
+            //perform any action on the email element
+            emaiElement.sendKeys("author@quaatso.com");
+      }
+
+      public void findElementByCss  (String browser) {
+            /*
+             * 1. Get webdriver object as per browser name
+             * 2. Open facebook
+             * 3. Find email element 
+             */
+
+            WebDriver driver = Browser.getBrowser(browser);
+            //open facebook
+            driver.get("https://www.facebook.com");
+
+            //Find email web element
+            WebElement passwordElement = driver.findElement(By.cssSelector("input[id='pass']"));
+
+            //perform any action on the email element
+            passwordElement.sendKeys("password");
       }
 }
