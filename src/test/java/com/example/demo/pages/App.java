@@ -24,7 +24,7 @@ public class App {
                   // examples.findElementById(browser);
                   // examples.findElementByLinkText(browser);
                   // examples.findElementByXPath(browser);
-                  webElement2.handleBackwardNavigation(browser);
+                  webElement2.handlePageRefresh(browser);
             } else {
                   System.out.println("Browser " + browser + "you entered not supported");
             }
