@@ -1,8 +1,10 @@
 package com.example.demo.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class WebElement1 {
 
@@ -76,6 +78,61 @@ public class WebElement1 {
            //deselect radio button
            driver.findElement(By.cssSelector("input[value='CSS']")).click();
 
+      }
+
+      public void handleAlert(String browser) {
+            WebDriver driver = Browser.getBrowser(browser);
+
+            driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_alert");
+
+            //switch to the parent iframe
+            driver.switchTo().frame("iframeResult");
+
+            // find radio button
+            driver.findElement(By.tagName("button")).click();
+
+            //switch to the alert and get text
+            Alert alert = driver.switchTo().alert();
+
+            //print alert text
+            System.out.println("Alert text is " + alert.getText());
+
+            //accept alert
+            alert.accept();
+
+           //sleep time
+           try {
+            Thread.sleep(3000);
+           } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+           }
+
+      }
+
+      public void handleDropdown(String browser) {
+            WebDriver driver = Browser.getBrowser(browser);
+
+            driver.get("https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_select");
+
+            //switch to the parent iframe
+            driver.switchTo().frame("iframeResult");
+
+            //find select element
+            WebElement select = driver.findElement(By.tagName("select"));
+
+            //switch to the alert and get text
+            Select dropDown = new Select(select);
+            dropDown.selectByVisibleText("Audi");
+            
+           //sleep time
+           try {
+            Thread.sleep(3000);
+           } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+           }
+           
       }
       
 }

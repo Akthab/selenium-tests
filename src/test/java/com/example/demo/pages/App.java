@@ -23,7 +23,7 @@ public class App {
                   // examples.findElementById(browser);
                   // examples.findElementByLinkText(browser);
                   // examples.findElementByXPath(browser);
-                  webElement.handleRadioButton(browser);
+                  webElement.handleDropdown(browser);
             } else {
                   System.out.println("Browser " + browser + "you entered not supported");
             }
