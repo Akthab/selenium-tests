@@ -1,5 +1,9 @@
 package com.example.demo.pages;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -87,5 +91,44 @@ public class WebElement2 {
 
             //refresh page
             driver.navigate().refresh();
+      }
+
+      public void handleMultipleWindows(String browser) {
+            WebDriver driver = Browser.getBrowser(browser);
+
+            //open w3schools
+
+            driver.get("https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_win_open");
+
+            //print the title of the page
+            System.out.println("Parent title is " + driver.getTitle());
+
+            //switch to the iframe
+            driver.switchTo().frame("iframeResult");
+
+            //capture window id
+            String parentWindowId = driver.getWindowHandle();
+
+            System.out.println("Parent window Id is " + parentWindowId);
+
+            //click over the button
+            driver.findElement(By.tagName("button")).click();
+
+            //get all windows IDS
+            Set<String> windIdsSet = driver.getWindowHandles();
+
+            //convert to list
+
+            List<String> windIdsList = new ArrayList<String>(windIdsSet);
+
+            //switch to the child window
+            driver.switchTo().window(windIdsList.get(1));
+
+            //print the title of the child page
+            System.out.println("Child title is " + driver.getTitle());
+
+            //switch to the parent page
+            driver.switchTo().window(parentWindowId);
+            System.out.println("Parent title is " + driver.getTitle());
       }
 }
