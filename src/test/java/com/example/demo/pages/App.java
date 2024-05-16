@@ -17,14 +17,14 @@ public class App {
             // ElementFindingExamples examples = new ElementFindingExamples();
 
             // WebElement1 webElement = new WebElement1();
-            WebElement2 webElement2 = new WebElement2();
+            WebTables webElement2 = new WebTables();
 
             if (browser.equalsIgnoreCase("firefox") || browser.equalsIgnoreCase("chrome")){
                   // examples.findElementByName(browser);
                   // examples.findElementById(browser);
                   // examples.findElementByLinkText(browser);
                   // examples.findElementByXPath(browser);
-                  webElement2.handleMultipleWindows(browser);
+                  webElement2.getAllElementFromWebTable(browser);
             } else {
                   System.out.println("Browser " + browser + "you entered not supported");
             }
