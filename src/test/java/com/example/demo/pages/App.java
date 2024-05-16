@@ -17,7 +17,7 @@ public class App {
             // ElementFindingExamples examples = new ElementFindingExamples();
 
             // WebElement1 webElement = new WebElement1();
-            WebDriverWaits webDriverWaits = new WebDriverWaits();
+            JavaScriptExamples javaScriptExamples = new JavaScriptExamples();
 
             if (browser.equalsIgnoreCase("firefox") || browser.equalsIgnoreCase("chrome")){
                   // examples.findElementByName(browser);
@@ -25,7 +25,9 @@ public class App {
                   // examples.findElementByLinkText(browser);
                   // examples.findElementByXPath(browser);
                   // webElement2.getAllElementFromWebTable(browser);
-                  webDriverWaits.webDriverWait(browser);
+                  // webDriverWaits.webDriverWait(browser);
+                  javaScriptExamples.verticalScroll(browser);
+
             } else {
                   System.out.println("Browser " + browser + "you entered not supported");
             }
