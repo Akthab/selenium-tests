@@ -1,6 +1,8 @@
 package com.example.demo.pages;
 
+import java.time.Duration;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,6 +24,9 @@ public class Browser {
             }
             else System.out.println("Browser not supported");
 
+            
+            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); 
             return driver;
       }
 }
